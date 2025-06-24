@@ -1,0 +1,71 @@
+┌─[root@localhost]─[toybox]
+└──╼ # bash run_build.rc
+Fix Setup...
+
+Make Dist Clean
+chmod: generated: No such file or directory
+cleaned
+root cleaned
+removed .config
+chmod: generated: No such file or directory
+cleaned
+
+Run Configure
+Assuming you want 'make defconfig', but you should probably check the README.
+cc -o kconfig/conf kconfig/conf.c kconfig/zconf.tab.c -DKBUILD_NO_NLS=1 \
+        -DPROJECT_NAME=\"ToyBox\"
+scripts/genconfig.sh
+kconfig/conf -D /dev/null Config.in > /dev/null
+
+ Make Build Toybox
+scripts/make.sh
+Library probe
+generated/{Config.in,newtoys.h,flags.h,globals.h,tags.h,help.h}
+Compile toybox
+....................................................................................................................................................................................................
+┌─[root@localhost]─[toybox]
+└──╼ # file toybox
+toybox: ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), statically linked, stripped
+┌─[root@localhost]─[toybox]
+└──╼ # ./toybox
+[ acpi arch ascii base32 base64 basename
+blkdiscard blkid blockdev bunzip2 bzcat
+cal cat chattr chgrp chmod chown chroot
+chrt chvt cksum clear cmp comm count
+cp cpio crc32 cut date deallocvt devmem
+df dirname dmesg dnsdomainname dos2unix
+du echo egrep eject env expand factor
+fallocate false fgrep file find flock
+fmt free freeramdisk fsfreeze fstype
+fsync ftpget ftpput getconf gpiodetect
+gpiofind gpioget gpioinfo gpioset grep
+groups gunzip halt head help hexedit
+host hostname httpd hwclock i2cdetect
+i2cdump i2cget i2cset iconv id ifconfig
+inotifyd insmod install ionice iorenice
+iotop kill killall killall5 link linux32
+ln logger login logname losetup ls lsattr
+lsmod lspci lsusb makedevs mcookie md5sum
+microcom mix mkdir mkfifo mknod mkpasswd
+mkswap mktemp modinfo mount mountpoint
+mv nbd-client nbd-server nc netcat netstat
+nice nl nohup nproc nsenter od oneit
+openvt partprobe passwd paste patch
+pgrep pidof ping ping6 pivot_root pkill
+pmap poweroff printenv printf prlimit
+ps pwd pwdx pwgen readahead readelf
+readlink realpath reboot renice reset
+rev rfkill rm rmdir rmmod rtcwake sed
+seq setfattr setsid sha1sum sha224sum
+sha256sum sha384sum sha3sum sha512sum
+shred sleep sntp sort split stat strings
+su swapoff swapon switch_root sync sysctl
+tac tail tar taskset tee test time timeout
+top touch true truncate tty tunctl uclampset
+ulimit umount uname unicode uniq unix2dos
+unlink unshare uptime usleep uudecode
+uuencode uuidgen vconfig vmstat w watch
+watchdog wc wget which who whoami xargs
+xxd yes zcat
+┌─[root@localhost]─[toybox]
+└──╼ #
