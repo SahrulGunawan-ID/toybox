@@ -1,5 +1,30 @@
 
 # JOBS SETTINGS MIN JOBS 4 -> MAX OTHER JOBS
+echo "Fix Setup..."
+chmod 700 configure
+chmod 700 scripts/*
+chmod 700 scripts/root/*
+chmod 700 toys/android/*
+chmod 700 toys/example/*
+chmod 700 toys/lsb/*
+chmod 700 toys/net/*
+chmod 700 toys/other/*
+chmod 700 toys/pending/*
+chmod 700 toys/posix/*
 
+echo
+echo "Make Dist Clean"
+# clean
+make distclean
+make clean
+
+echo
+echo "Run Configure"
+# Run Configure
+./configure
+
+echo
+echo " Make Build Toybox"
+# Run Make Build Toybox
 make -j4 \
 CFLAGS="-Os -static -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0"
