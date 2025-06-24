@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # JOBS SETTINGS MIN JOBS 4 -> MAX OTHER JOBS
 echo "Fix Setup..."
